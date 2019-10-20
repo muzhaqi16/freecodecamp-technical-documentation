@@ -11,6 +11,9 @@ a {
   text-decoration: none;
   color: black;
 }
+code {
+  background-color: #f7f7f7;
+}
 #main-doc {
   width: 100%;
   display: flex;
