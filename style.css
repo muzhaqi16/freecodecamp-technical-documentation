@@ -1,0 +1,38 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+#main-doc {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+#navbar {
+  padding: 1rem 15px 0 15px;
+  flex: 0 0 25%;
+  flex-wrap: wrap;
+  border-right: 1px solid #ececec;
+}
+#navbar > a {
+  display: block;
+  margin-bottom: 10px;
+}
+div.content {
+  flex: 0 0 75%;
+  padding: 0 25px;
+}
+@media (max-width: 600px) {
+  #navbar {
+    display: none;
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Techincal Documentation</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link type="text/css" href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+
+  </header>
+  <main id="main-doc">
+    <nav id="navbar">
+      <header>
+        <h3>Basics</h3>
+      </header>
+      <a href="#introduction" class="nav-link">Introduction</a>
+      <a href="#writing_stories" class="nav-link">Writing Stories</a>
+      <a href="#exporting_storybook_as_a_static_app" class="nav-link">Exporting Storybook as a Static App</a>
+      <a href="#frequently_asked_questions" class="nav-link">Frequently Asked Questions</a>
+      <a href="#live_examples" class="nav-link">Live Examples</a>
+    </nav>
+    <div class="content">
+      <section class="main-section" id="introduction">
+        <header>
+          <h2 class="title">Introduction</h2>
+        </header>
+        <p>Storybook is a user interface development environment and playground for UI components. The tool enables
+          developers to create components independently and showcase components interactively in an isolated development
+          environment.</p>
+        <p>Storybook runs outside of the main app so users can develop UI components in isolation without worrying about
+          app specific dependencies and requirements.</p>
+      </section>
+      <section class="main-section" id="writing_stories">
+        <header>
+          <h2 class="title">Writing Stories</h2>
+        </header>
+        <p>A Storybook is a collection of stories. Each story represents a single visual state of a component.</p>
+        <q>Technically, a story is a function that returns something that can be rendered to screen.</q>
+        <h2>Basic story</h2>
+        <p>Here is a simple example of stories for a <code>Button</code> component:</p>
+        <pre>
+        <code>
+          import React from 'react';
+          import { action } from '@storybook/addon-actions';
+          import Button from './Button';
+          
+          export default {
+            component: Button,
+            title: 'Button',
+          };
+          
+          export const text = () => &lt;Button onClick={action('clicked')}&gt;Hello Button &lt;/Button&gt;
+          
+          export const emoji = () => (
+            &lt;Button onClick={action('clicked')}&gt;
+            &lt;span role="img" aria-label="so cool"&gt;
+                😀 😎 👍 💯
+                &lt;/span&gt;
+                &lt;/Button&gt;
+          ); 
+        </code>
+      </pre>
+        <li></li>
+      </section>
+      <section class="main-section" id="exporting_storybook_as_a_static_app">
+        <header>
+          <h2 class="title">Exporting Storybook as a Static App</h2>
+        </header>
+        <p>Storybook gives a great developer experience with its dev time features, like instant change updates via
+          Webpack’s HMR.</p>
+        <p>But Storybook is also a tool you can use to showcase your components to others. Demos of React Native Web and
+          React Dates are a good example for that.</p>
+        <p>For that, Storybook comes with a tool to export your storybook into a static web app. Then you can deploy it
+          to
+          GitHub pages or any static hosting service.</p>
+        <p>Simply add the following NPM script:</p>
+        <pre>
+          <code>{
+                "scripts": {
+                  "build-storybook": "build-storybook -c .storybook -o .out"
+                }
+              } 
+          </code>
+      </pre>
+        <p>Then run <code>yarn build-storybook</code> .</p>
+        <p>This will build the storybook configured in the Storybook directory into a static web app and place it inside
+          the <code>.out</code> directory. Now you can deploy the content in the <code>.out</code> directory wherever
+          you
+          want.</p>
+        <p>To test it locally:</p>
+        <code>npx http-server .out</code>
+      </section>
+      <section class="main-section" id="frequently_asked_questions">
+        <header>
+          <h2 class="title">Frequently Asked Questions</h2>
+        </header>
+        <p>Here are some answers to frequently asked questions. If you have a question, you can ask it by opening an
+          issue
+          on the Storybook Repository.</p>
+        <h3>How can I run coverage tests with Create React App and leave out stories?</h3>
+        <p>Create React App does not allow providing options to Jest in your <code>package.json</code>, however you can
+          run <code>jest</code> with commandline arguments:</p>
+        <pre>
+          <code>npm test -- --coverage --collectCoverageFrom='["src/**/*.
+            {js,jsx}","!src/**/stories/*"]' </code>
+      </pre>
+        <h3>I see <code>ReferenceError: React is not defined</code> when using storybooks with Next.js</h3>
+        <p>Next automatically defines <code>React</code> for all of your files via a babel plugin. You must define
+          <code>React</code> for JSX to work. You can solve this either by:</p>
+        <ol>
+          <li>Adding <code>import React from 'react'</code> to your component files.</li>
+          <li>Adding a <code>.babelrc</code> that includes <code>babel-plugin-react-require</code></li>
+        </ol>
+      </section>
+      <section class="main-section" id="live_examples">
+        <header>
+          <h2 class="title">Live Examples</h2>
+        </header>
+        <h3>Next release</h3>
+        <ul>
+          <li>React Official</li>
+          <li>Vue</li>
+          <li>Angular</li>
+          <li>Polymer</li>
+          <li>Mithril</li>
+          <li>Marko</li>
+          <li>HTML</li>
+          <li>Svelte</li>
+          <li>Riot</li>
+          <li>Ember</li>
+          <li>Preact</li>
+          <li>Rax</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
