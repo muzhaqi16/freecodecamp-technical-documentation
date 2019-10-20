@@ -11,8 +11,14 @@ a {
   text-decoration: none;
   color: black;
 }
-code {
+pre {
+  padding: 10px 12px;
   background-color: #f7f7f7;
+}
+code {
+  padding: 2px 5px;
+  background-color: #f7f7f7;
+  line-height: 18px;
 }
 #main-doc {
   width: 100%;
